@@ -12,6 +12,23 @@ info_endpoint = Blueprint('info_endpoint', __name__)
 
 @info_endpoint.route('/info', methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
 @swag_from({
+    'tags': ['Info'],
+    'parameters': [
+        {
+            "name": "body",
+            "in": "body",
+            "required": False,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "optional_field": {
+                        "type": "string",
+                        "description": "An optional field"
+                    }
+                }
+            }
+        }
+    ],
     'responses': {
         200: {
             'description': 'Successful response',
