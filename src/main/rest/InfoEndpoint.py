@@ -10,25 +10,9 @@ from flasgger import swag_from
 info_endpoint = Blueprint('info_endpoint', __name__)
 
 
-@info_endpoint.route('/info', methods=['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
+@info_endpoint.route('/info', methods=['GET'])
 @swag_from({
     'tags': ['Info'],
-    'parameters': [
-        {
-            "name": "body",
-            "in": "body",
-            "required": False,
-            "schema": {
-                "type": "object",
-                "properties": {
-                    "optional_field": {
-                        "type": "string",
-                        "description": "An optional field"
-                    }
-                }
-            }
-        }
-    ],
     'responses': {
         200: {
             'description': 'Successful response',
@@ -72,11 +56,6 @@ def info():
             "request ip" : request_ip,
             "token genrated" : token
         }
-
-        if not request.data:
-            return response, 200
-        data = request.json
-        response["data"] = data
         return response, 200
     except Exception as e:
         return {"error" : str(e)}, 500
