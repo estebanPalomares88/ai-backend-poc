@@ -10,8 +10,8 @@ CORS(app)
 swagger_config = {
     "swagger": "2.0",
     "info": {
-        "title": "AI Backend PoC",
-        "description": "This is the backend for a proof of concept of a system using some tools of AI",
+        "title": "Test Backend PoC",
+        "description": "This is the backend for a proof of concept of testing APIs with different functionalities",
         "version": "1.0.0"
     },
     "specs": [
@@ -26,7 +26,7 @@ swagger_config = {
     "static_url_path": "/flasgger_static",
     "swagger_ui": True,
     "specs_route": "/apidocs/",
-    "title" : "AI Backend",
+    "title" : "Test Backend",
     'hide_top_bar': True
 }
 
